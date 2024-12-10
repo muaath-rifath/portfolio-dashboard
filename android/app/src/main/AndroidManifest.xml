@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="me.muaathrifath.dashboard">
 
     <application
         android:allowBackup="true"
@@ -11,7 +12,7 @@
 
         <activity
             android:configChanges="orientation|keyboardHidden|keyboard|screenSize|locale|smallestScreenSize|screenLayout|uiMode"
-            android:name=".MainActivity"
+            android:name="me.muaathrifath.dashboard.MainActivity"
             android:label="@string/title_activity_main"
             android:theme="@style/AppTheme.NoActionBarLaunch"
             android:launchMode="singleTask"
@@ -34,7 +35,7 @@
         </provider>
 
         <service
-            android:name=".PushNotificationService"
+            android:name="me.muaathrifath.dashboard.PushNotificationService"
             android:exported="false">
             <intent-filter>
                 <action android:name="com.google.firebase.MESSAGING_EVENT" />
@@ -44,5 +45,9 @@
 
     <!-- Permissions -->
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.VIBRATE" />
 </manifest>
 

@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "754089882871",
+    "project_id": "portfolio-70fd7",
+    "storage_bucket": "portfolio-70fd7.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:754089882871:android:5ca9c491f740ea02b6cff2",
+        "android_client_info": {
+          "package_name": "me.muaathrifath.dashboard"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDjBII5hhap-Qygbgu1fN9ey-zzdZCFoZg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

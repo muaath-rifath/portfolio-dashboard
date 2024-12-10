@@ -1,4 +1,4 @@
-package me.muaathrifath.portfolio;
+package me.muaathrifath.dashboard;
 
 import com.getcapacitor.BridgeActivity;
 

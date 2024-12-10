@@ -17,20 +17,52 @@ export default function Dashboard() {
   const [contacts, setContacts] = useState<Contact[]>([]);
 
   useEffect(() => {
-    setupPushNotifications();
+    initializePushNotifications();
     subscribeToContacts();
   }, []);
 
-  const setupPushNotifications = async () => {
-    const result = await PushNotifications.requestPermissions();
-    if (result.receive === 'granted') {
-      await PushNotifications.register();
+  const initializePushNotifications = async () => {
+    if (!('Notification' in window)) {
+      console.log('This browser does not support notifications');
+      return;
+    }
+  
+    try {
+      // First request notification permission
+      const permission = await Notification.requestPermission();
+      if (permission !== 'granted') {
+        console.log('Notification permission denied');
+        return;
+      }
+  
+      // Then proceed with Capacitor push notifications
+      const permissionStatus = await PushNotifications.checkPermissions();
       
-      PushNotifications.addListener('pushNotificationReceived', (notification) => {
-        console.log('Notification received:', notification);
+      if (permissionStatus.receive === 'prompt') {
+        await PushNotifications.requestPermissions();
+      }
+  
+      await PushNotifications.register();
+  
+      // Add listeners after successful registration
+      PushNotifications.addListener('registration', (token) => {
+        console.log('Push registration success:', token.value);
       });
+  
+      PushNotifications.addListener('registrationError', (error) => {
+        console.error('Registration error:', error);
+      });
+  
+      PushNotifications.addListener('pushNotificationReceived', (notification) => {
+        console.log('Push notification received:', notification);
+      });
+  
+    } catch (error) {
+      // Properly handle the error without throwing
+      console.error('Push notification initialization error:', error);
     }
   };
+  
 
   const subscribeToContacts = () => {
     const q = query(collection(db, 'contacts'), orderBy('createdAt', 'desc'));
