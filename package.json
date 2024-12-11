@@ -13,10 +13,12 @@
     "@capacitor/cli": "^6.2.0",
     "@capacitor/core": "^6.2.0",
     "@capacitor/push-notifications": "^6.0.3",
+    "@ducanh2912/next-pwa": "^10.2.9",
     "firebase": "^11.0.2",
     "next": "15.0.4",
     "react": "^19.0.0",
-    "react-dom": "^19.0.0"
+    "react-dom": "^19.0.0",
+    "webpack": "^5.97.1"
   },
   "devDependencies": {
     "@types/node": "^20",

@@ -4,11 +4,11 @@ plugins {
 }
 
 android {
-    namespace "me.muaathrifath.dashboard"  // Changed to match google-services.json
+    namespace "me.muaathrifath.dashboard"
     compileSdk rootProject.ext.compileSdkVersion
     defaultConfig {
-        applicationId "me.muaathrifath.dashboard"  // Changed to match google-services.json
-        minSdkVersion rootProject.ext.minSdkVersion
+        applicationId "me.muaathrifath.dashboard"
+        minSdkVersion 23  // Updated to fix API level issue
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 1
         versionName "1.0"
@@ -23,12 +23,14 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+    lint {
+        baseline = file("lint-baseline.xml")
+    }
 }
 
 repositories {
-    flatDir{
-        dirs '../capacitor-cordova-android-plugins/src/main/libs', 'libs'
-    }
+    mavenCentral()
+    google()
 }
 
 dependencies {
@@ -41,7 +43,7 @@ dependencies {
     // Firebase dependencies
     implementation platform('com.google.firebase:firebase-bom:33.7.0')
     implementation 'com.google.firebase:firebase-analytics'
-    implementation 'com.google.firebase:firebase-messaging'  // Add this for notifications
+    implementation 'com.google.firebase:firebase-messaging'
     
     testImplementation "junit:junit:$junitVersion"
     androidTestImplementation "androidx.test.ext:junit:$androidxJunitVersion"
@@ -50,4 +52,3 @@ dependencies {
 }
 
 apply from: 'capacitor.build.gradle'
-
