@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='utf-8'?>
 <resources>
-    <string name="app_name">portfolio-dashboard</string>
-    <string name="title_activity_main">portfolio-dashboard</string>
-    <string name="package_name">me.muaathrifath.portfolio</string>
-    <string name="custom_url_scheme">me.muaathrifath.portfolio</string>
+    <string name="app_name">Dashboard</string>
+    <string name="title_activity_main">Dashboard</string>
+    <string name="package_name">me.muaathrifath.dashboard</string>
+    <string name="custom_url_scheme">me.muaathrifath.dashboard</string>
 </resources>

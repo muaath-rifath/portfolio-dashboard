@@ -1,8 +1,8 @@
-import type { CapacitorConfig } from '@capacitor/cli';
+import { CapacitorConfig } from '@capacitor/cli';
 
 const config: CapacitorConfig = {
-  appId: 'me.muaathrifath.portfolio',
-  appName: 'portfolio-dashboard',
+  appId: 'me.muaathrifath.dashboard',
+  appName: 'Dashboard',
   webDir: 'out',
   server: {
     androidScheme: 'https'
@@ -10,7 +10,12 @@ const config: CapacitorConfig = {
   plugins: {
     PushNotifications: {
       presentationOptions: ["badge", "sound", "alert"]
-    }
+    },
+    LocalNotifications: {
+      smallIcon: "ic_stat_logo_portfolio_light",
+      iconColor: "#000"
+    },
+    
   },
 };
 
